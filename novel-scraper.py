@@ -4,13 +4,24 @@ import os
 
 def main():
     baseURL = "https://freewebnovel.com/unparalleled-after-ten-consecutive-draws/chapter-" #Important: Base url: remove chapter number and ".html"
-
-    chapterCounter = 323 #Important: Starting Chapter
-    chapterRange = 2 #Important: Number of chapters
     novelName = "Unparalleled-after-ten-consecutive-draws" #Important: Novel title used for directory+file name
+
+    chapterCounter = userInputPlez("Please enter starting chapter: ")
+    chapterRange = userInputPlez("Please enter how many chapters you want: ")  
     fileName = fileNameGenerator(novelName,chapterCounter, chapterRange)
 
     scrapingAndWritingToTextFile(fileName, chapterRange, chapterCounter, baseURL)
+
+#this function prompts user input until valid
+def userInputPlez(prompt):
+    while True:
+        try:
+            inpt = int(input(prompt))
+        except ValueError:
+            print("Invalid input")
+            continue
+        else:
+            return inpt
 
 #this function will generate a seperate folder within the text-files folder for this new novel
 def fileNameGenerator(novelName, chapterCounter, chapterRange):
@@ -21,11 +32,12 @@ def fileNameGenerator(novelName, chapterCounter, chapterRange):
     try:
         os.mkdir("text-files/" + novelName)
     except:
-        print("A folder for this novel already exists in the text-files folder")
+        print("\n"+"A folder for this novel already exists in the text-files folder")
     fileName = "text-files/" + novelName+"/" + novelName+ "_Ch:" + str(chapterCounter) + "-" + str(chapterCounter+chapterRange-1) + ".txt"
     return fileName;
 
 def scrapingAndWritingToTextFile(fileName, chapterRange, chapterCounter, baseURL):
+    print("\n"+ "Following will indicate which chapter is being scraped: ")
     textfile = open(fileName, "w")
     for x in range(chapterRange): 
             URL = baseURL + str(chapterCounter) + ".html"
