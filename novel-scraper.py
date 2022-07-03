@@ -14,6 +14,10 @@ def main():
 
 #this function will generate a seperate folder within the text-files folder for this new novel
 def fileNameGenerator(novelName, chapterCounter, chapterRange):
+    try: 
+        os.mkdir("text-files/")
+    except:
+        pass
     try:
         os.mkdir("text-files/" + novelName)
     except:
@@ -25,7 +29,7 @@ def scrapingAndWritingToTextFile(fileName, chapterRange, chapterCounter, baseURL
     textfile = open(fileName, "w")
     for x in range(chapterRange): 
             URL = baseURL + str(chapterCounter) + ".html"
-            print(URL)
+            print(chapterCounter)
             page = requests.get(URL)
             soup = BeautifulSoup(page.content, 'html.parser')
             results = soup.find_all('p')
