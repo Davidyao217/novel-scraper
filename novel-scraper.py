@@ -9,7 +9,7 @@ baseURL = "https://freewebnovel.com/unparalleled-after-ten-consecutive-draws/cha
 
 chapterCounter = 323 #Important: Starting Chapter
 
-textfile = open("a_file.txt", "w")
+textfile = open("text-files/a_file.txt", "w")
 for x in range(5): #Important: Number of chapters
         URL = baseURL + str(chapterCounter) + ".html"
         page = requests.get(URL)
