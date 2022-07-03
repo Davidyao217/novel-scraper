@@ -8,7 +8,7 @@ def main():
     chapterCounter = 323 #Important: Starting Chapter
     chapterRange = 2 #Important: Number of chapters
     novelName = "Unparalleled-after-ten-consecutive-draws" #Important: Novel title used for directory+file name
-    fileName = fileNameGenerator(novelName,chapterCounter, chapterRange, )
+    fileName = fileNameGenerator(novelName,chapterCounter, chapterRange)
 
     scrapingAndWritingToTextFile(fileName, chapterRange, chapterCounter, baseURL)
 
