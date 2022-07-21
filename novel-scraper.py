@@ -2,12 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
-https://products.aspose.com/words/python-net/conversion/txt-to-epub/
+#https://products.aspose.com/words/python-net/conversion/txt-to-epub/
 
 def main():
     baseURL = "https://freewebnovel.com/blood-warlock-succubus-partner-in-the-apocalypse-novel/chapter-"#Important: Base url: remove chapter number and ".html"
         #"https://freewebnovel.com/unparalleled-after-ten-consecutive-draws/chapter-" 
-    novelName = "Blood-Warlock-In-The-Apocalypse`" #Important: Novel title used for directory+file name
+    novelName = "Blood-Warlock-In-The-Apocalypse" #Important: Novel title used for directory+file name
 
     chapterCounter = userInputPlez("Please enter starting chapter: ")
     chapterRange = userInputPlez("Please enter how many chapters you want: ")  
